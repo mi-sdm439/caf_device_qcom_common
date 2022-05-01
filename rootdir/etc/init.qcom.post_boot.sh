@@ -821,6 +821,7 @@ function enable_memory_features()
 
 function start_hbtp()
 {
+	return
         # Start the Host based Touch processing but not in the power off mode.
         bootmode=`getprop ro.bootmode`
         if [ "charger" != $bootmode ]; then
