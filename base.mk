@@ -366,7 +366,6 @@ INIT += init.qcom.usb.sh
 INIT += usf_post_boot.sh
 INIT += init.qcom.efs.sync.sh
 INIT += ueventd.qcom.rc
-INIT += qca6234-service.sh
 INIT += ssr_setup
 INIT += enable_swap.sh
 INIT += init.mdm.sh
@@ -397,38 +396,8 @@ IPTABLES += iptables
 KERNEL_TESTS := mm-audio-native-test
 
 #KEYPAD
-KEYPAD := ffa-keypad_qwerty.kcm
-KEYPAD += ffa-keypad_numeric.kcm
-KEYPAD += fluid-keypad_qwerty.kcm
-KEYPAD += fluid-keypad_numeric.kcm
-KEYPAD += surf_keypad_qwerty.kcm
-KEYPAD += surf_keypad_numeric.kcm
-KEYPAD += surf_keypad.kcm
-KEYPAD += 7k_ffa_keypad.kcm
-KEYPAD += 7x27a_kp.kcm
-KEYPAD += keypad_8960_qwerty.kcm
-KEYPAD += 7k_ffa_keypad.kl
-KEYPAD += 7k_handset.kl
-KEYPAD += 7x27a_kp.kl
-KEYPAD += 8660_handset.kl
-KEYPAD += atmel_mxt_ts.kl
-KEYPAD += synaptics_rmi4_i2c.kl
-KEYPAD += synaptics_dsx.kl
-KEYPAD += synaptics_dsxv26.kl
-KEYPAD += cyttsp-i2c.kl
-KEYPAD += ft5x06_ts.kl
-KEYPAD += ffa-keypad.kl
-KEYPAD += fluid-keypad.kl
 KEYPAD += gpio-keys.kl
 KEYPAD += qpnp_pon.kl
-KEYPAD += keypad_8960.kl
-KEYPAD += keypad_8960_liquid.kl
-KEYPAD += synaptics_rmi4_i2c.kl
-KEYPAD += msm_tma300_ts.kl
-KEYPAD += philips_remote_ir.kl
-KEYPAD += samsung_remote_ir.kl
-KEYPAD += surf_keypad.kl
-KEYPAD += ue_rf4ce_remote.kl
 
 #KS
 KS := ks
@@ -1054,7 +1023,7 @@ PRODUCT_PACKAGES += $(IMS_SETTINGS)
 PRODUCT_PACKAGES += $(CRDA)
 PRODUCT_PACKAGES += $(WLAN)
 PRODUCT_PACKAGES += $(IPACM)
-PRODUCT_PACKAGES += $(FSTMAN)
+#PRODUCT_PACKAGES += $(FSTMAN)
 PRODUCT_PACKAGES += $(FD_LEAK)
 PRODUCT_PACKAGES += $(IMS_EXT)
 # Temp workarround for b/36603742
@@ -1263,7 +1232,7 @@ endif
 
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.oem_unlock_supported=1
+    ro.oem_unlock_supported=0
 
 ifeq ($(TARGET_USES_QCOM_BSP_ATEL),true)
     PRODUCT_PROPERTY_OVERRIDES += persist.radio.multisim.config=dsds
@@ -1296,21 +1265,7 @@ else
 endif
 
 PRODUCT_PACKAGES_DEBUG += \
-    init.qcom.debug.sh \
-    init.qcom.debug-sdm660.sh \
-    init.qcom.debug-sdm710.sh \
-    init.qti.debug-msmnile-apps.sh \
-    init.qti.debug-msmnile-modem.sh \
-    init.qti.debug-msmnile-slpi.sh \
-    init.qti.debug-talos.sh \
-    init.qti.debug-msmnile.sh \
-    init.qti.debug-kona.sh \
-    init.qti.debug-lito.sh \
-    init.qti.debug-trinket.sh \
-    init.qti.debug-atoll.sh \
-    init.qti.debug-lagoon.sh \
-    init.qti.debug-bengal.sh \
-    init.qti.debug-scuba.sh
+    init.qcom.debug.sh
 
 PRODUCT_PACKAGES += liboemaids_system
 PRODUCT_PACKAGES += liboemaids_vendor
