@@ -19,10 +19,10 @@ else
     $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 endif
 
-PRODUCT_BRAND := qcom
-PRODUCT_AAPT_CONFIG += hdpi mdpi
+#PRODUCT_BRAND := qcom
+#PRODUCT_AAPT_CONFIG += hdpi mdpi
 
-PRODUCT_MANUFACTURER := QUALCOMM
+#PRODUCT_MANUFACTURER := QUALCOMM
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
